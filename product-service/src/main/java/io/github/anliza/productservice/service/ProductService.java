@@ -6,7 +6,9 @@ import io.github.anliza.productservice.model.ProductCreateRequest;
 import io.github.anliza.productservice.model.ProductCreateResponse;
 
 public interface ProductService {
-     ProductCreateResponse createProduct(ProductCreateRequest productCreateRequest);
+    ProductCreateResponse createProduct(ProductCreateRequest productCreateRequest);
 
     List<ProductCreateResponse> findAll();
+
+    ProductCreateResponse findById(Integer productId);
 }

@@ -3,6 +3,7 @@ package io.github.anliza.productservice.controller;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +29,18 @@ public class ProductController {
     public GenericResponse<List<ProductCreateResponse>> list() {
        List<ProductCreateResponse> pr = productService.findAll();
        GenericResponse<List<ProductCreateResponse>> resp = GenericResponse.<List<ProductCreateResponse>>builder()
+                .success(true)
+                .msg("Data fetched Successfully")
+                .data(pr)
+                .build();
+                log.info("We returned : {}",pr);
+                return resp;
+    }
+
+    @GetMapping("/{productId}")
+    public GenericResponse<ProductCreateResponse> findById(@PathVariable(name = "productId")  Integer productId) {
+        ProductCreateResponse pr = productService.findById(productId);
+        GenericResponse<ProductCreateResponse> resp = GenericResponse.<ProductCreateResponse>builder()
                 .success(true)
                 .msg("Data fetched Successfully")
                 .data(pr)

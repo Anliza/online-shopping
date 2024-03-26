@@ -1,3 +1,4 @@
+### Simple hello endpoint
 GET http://localhost:8080/api/hello  HTTP/1.1
 
 ### List Products
@@ -13,3 +14,7 @@ Content-Type: application/json
     "name":"Pineapple",
     "price":"50.00"
 }
+
+### Get Product
+# @name GetProductById
+GET http://localhost:8080/api/products/5  HTTP/1.1
