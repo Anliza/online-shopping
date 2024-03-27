@@ -41,7 +41,7 @@ public class OrderServiceImpl implements OrderService {
 
     @SuppressWarnings("unchecked")
     @Override
-    public void placeOrder(OrderRequest orderRequest) {
+    public String placeOrder(OrderRequest orderRequest) {
 
         Order order = new Order();
 
@@ -77,6 +77,10 @@ public class OrderServiceImpl implements OrderService {
             var orderItems = orderRequest.getOrderItems().stream().map(this::mapToOrderItemEntity).toList();
             order.setOrderItems(orderItems);
             orderRepository.save(order);
+            //TODO: make the call to inventory to reduce quantity
+            //TODO: process payment for an order
+            return order.getOrderNumber();
+
         } else {
             // ! throw an exception with the listing of the products that do have enough
             log.error("Not Enough stock");
