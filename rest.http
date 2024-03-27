@@ -29,7 +29,7 @@ Content-Type: application/json
    "orderItems":[
         {
             "productCode":"PIN001",
-            "quantity":3
+            "quantity":6
         },
         {
             "productCode":"PHN001",
