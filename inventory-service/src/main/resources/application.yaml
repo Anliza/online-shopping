@@ -1,5 +1,5 @@
 server:
-  port: 0
+  port: 6002
 spring:
   application:
     name: inventory-service
@@ -13,3 +13,12 @@ spring:
       username: root
       password: generic
       authentication-database: admin
+
+
+eureka:
+  client:
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
