@@ -30,6 +30,9 @@ public class OrderServiceImpl implements OrderService{
        order.setOrderTime(Instant.now());
        var orderItems = orderRequest.getOrderItems().stream().map(this::mapToOrderItemEntity).toList();
        order.setOrderItems(orderItems);
+       //Checks
+       //! All products exists in the inventory
+       //! throw an exception with the listing of the products that do have enough stock
        orderRepository.save(order);
     }
     private OrderItem mapToOrderItemEntity(OrderItemRequest itemRequest){

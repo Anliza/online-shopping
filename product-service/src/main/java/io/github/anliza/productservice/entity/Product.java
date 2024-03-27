@@ -8,13 +8,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="tbl_products")
+@Table(name="tbl_products",uniqueConstraints = {
+    @UniqueConstraint(columnNames = "product_code",name = "UNIQ_PRODUCT_CODE")
+})
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,6 +34,9 @@ public class Product {
 
     @Column(name= "product_price")
     private BigDecimal price;
+
+    @Column(name= "product_code")
+    private String productCode;
     
 
     
