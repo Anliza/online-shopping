@@ -33,7 +33,7 @@ Content-Type: application/json
         },
         {
             "productCode":"PHN001",
-            "quantity":3
+            "quantity":50
         }
    ]
 }
