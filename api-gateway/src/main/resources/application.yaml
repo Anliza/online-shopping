@@ -1,0 +1,31 @@
+server:
+  port: 7000
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: products
+          uri: lb://PRODUCT-SERVICE # service names to discover values: use this instead of normal url
+          predicates:
+            - Path=/api/products/**
+        - id: hello
+          uri: lb://PRODUCT-SERVICE
+          predicates:
+            - Path=/api/hello
+        - id: order
+          uri: lb://ORDER-SERVICE
+          predicates:
+            - Path=/api/orders/**
+        - id: inventory
+          uri: lb://INVENTORY-SERVICE
+          predicates:
+            - Path=/api/inventory/**
+eureka:
+  client:
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

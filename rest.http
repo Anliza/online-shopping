@@ -1,49 +1,56 @@
 ### Simple hello endpoint
-GET http://localhost:6000/api/hello  HTTP/1.1
+GET http://localhost:7000/api/hello HTTP/1.1
 
 ### List Products
 # @name ProductList
-GET http://localhost:6000/api/products  HTTP/1.1
+GET http://localhost:7000/api/products HTTP/1.1
+
 
 ### Save Product
-# @name SaveProduct
-POST http://localhost:6000/api/products  HTTP/1.1
+# @name Saveproduct
+POST http://localhost:7000/api/products HTTP/1.1
 Content-Type: application/json
 
 {
-    "name":"Phone",
-    "price":"15799.00",
-    "productCode":"PHN001"
+    "name":"laptop",
+    "price":"136000.00",
+    "productCode":"LAP001"
 }
+
 
 ### Get Product
 # @name GetProductById
-GET http://localhost:6000/api/products/5  HTTP/1.1
+GET http://localhost:7000/api/products/3 HTTP/1.1
+
 
 ### Place Order
 # @name placeorder
-POST http://localhost:6001/api/orders/placeOrder HTTP/1.1
+POST http://localhost:7000/api/orders/placeOrder HTTP/1.1
 Content-Type: application/json
 
 {
    "orderItems":[
         {
             "productCode":"PIN001",
-            "quantity":2
+            "quantity":3
         },
         {
             "productCode":"PHN001",
-            "quantity":50
+            "quantity":5
         }
    ]
 }
 
+
 ### Save Inventory
 # @name SaveInventory
-POST http://localhost:6002/api/inventory/create HTTP/1.1
+POST http://localhost:7000/api/inventory/create HTTP/1.1
 Content-Type: application/json
 
 {
     "productCode":"PHN001",
     "quantity":"10"
 }
+
+
+## TODO:// working with spring profiles
