@@ -3,6 +3,8 @@ server:
 spring:
   application:
     name: inventory-service
+  config:
+    import: optional:configserver:http://localhost:8888
   data:
     mongodb:
       ## uri: mongodb://root:generic@localhost:27017/inventorydb
@@ -15,10 +17,3 @@ spring:
       authentication-database: admin
 
 
-eureka:
-  client:
-    enabled: true
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8761/eureka
